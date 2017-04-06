@@ -32,6 +32,14 @@ class TestMovesOrientationNorth:
         assert_equal(10, r.x)
         assert_equal(20, r.y)
 
+    def test_move_right(self):
+        r.move(list('r'))
+        assert_equal('E', r.orientation)
+
+    def test_move_left(self):
+        r.move(list('l'));
+        assert_equals('W', r.orientation)
+
 class TestMovesOrientationSouth:
 
     def setup(self):
@@ -48,6 +56,14 @@ class TestMovesOrientationSouth:
         r.move(list("b"))
         assert_equal(10, r.x)
         assert_equal(22, r.y)
+
+    def test_move_right(self):
+        r.move(list('r'))
+        assert_equal('W', r.orientation)
+
+    def test_move_left(self):
+        r.move(list('l'));
+        assert_equals('E', r.orientation)
 
 # would love use use test generators!
 class TestMovesOrientationEast:
@@ -66,6 +82,14 @@ class TestMovesOrientationEast:
         assert_equal(9, r.x)
         assert_equal(21, r.y)
 
+    def test_move_right(self):
+        r.move(list('r'))
+        assert_equal('S', r.orientation)
+
+    def test_move_left(self):
+        r.move(list('l'));
+        assert_equals('N', r.orientation)
+
 class TestMovesOrientationWest:
 
     def setup(self):
@@ -81,3 +105,11 @@ class TestMovesOrientationWest:
         r.move(list("b"))
         assert_equal(11, r.x)
         assert_equal(21, r.y)
+
+    def test_move_right(self):
+        r.move(list('r'))
+        assert_equal('N', r.orientation)
+
+    def test_move_left(self):
+        r.move(list('l'));
+        assert_equals('S', r.orientation)

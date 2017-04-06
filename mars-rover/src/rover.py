@@ -25,16 +25,25 @@ class Rover:
         self.x -= delta[0]
         self.y -= delta[1]
 
+    def move_right(self, delta):
+        self.orientation = delta[3]
+
+    def move_left(self, delta):
+        self.orientation = delta[2]
+
     # commands to dispatch for each move key
     commands = {
         'f': move_forward,
-        'b': move_backward
+        'b': move_backward,
+        'r': move_right,
+        'l': move_left
     }
 
     # x,y deltas to move forward for each orientation
+    # compoents are dx, dy, leftOrientation, rightOrientation
     deltas = {
-        'N': [ +0, +1 ],
-        'S': [ +0, -1 ],
-        'E': [ +1, +0 ],
-        'W': [ -1, +0 ]
+        'N': [ +0, +1, 'W', 'E' ],
+        'S': [ +0, -1, 'E', 'W' ],
+        'E': [ +1, +0, 'N', 'S' ],
+        'W': [ -1, +0, 'S', 'N' ]
     }
