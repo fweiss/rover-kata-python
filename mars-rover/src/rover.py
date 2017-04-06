@@ -3,10 +3,11 @@ class Rover:
     global commands
     global deltas
 
-    def __init__(self, x, y, orientation):
+    def __init__(self, x, y, orientation, planet):
         self.x = x
         self.y = y
         self.orientation = orientation
+        self.planet = planet
 
     def move(self, commands):
         for command in commands:

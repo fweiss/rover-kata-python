@@ -1,8 +1,10 @@
 from nose.tools import *
 import rover
+import planet
 
 def createRover(x, y, orientation):
-    return rover.Rover(x, y, orientation)
+    thePlanet = planet.Planet(100, 100)
+    return thePlanet.createRover(x, y, orientation)
 
 class TestRover:
 
