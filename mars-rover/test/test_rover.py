@@ -113,3 +113,15 @@ class TestMovesOrientationWest:
     def test_move_left(self):
         r.move(list('l'));
         assert_equals('S', r.orientation)
+
+class TestMovePath:
+
+    def setup(self):
+        global r
+        r = rover.Rover(10, 21, 'N')
+
+    def test_simple_path(self):
+        r.move(list("ffrff"))
+        assert_equal('E', r.orientation)
+        assert_equal(12, r.x)
+        assert_equal(23, r.y)

@@ -9,7 +9,8 @@ class Rover:
         self.orientation = orientation
 
     def move(self, commands):
-        self.moveBy(commands[0])
+        for command in commands:
+            self.moveBy(command)
 
     # use command pattern and lookup to avoid switch statements :)
     def moveBy(self, commandKey):
