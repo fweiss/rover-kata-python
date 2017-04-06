@@ -1,11 +1,14 @@
 from nose.tools import *
 import rover
 
+def createRover(x, y, orientation):
+    return rover.Rover(x, y, orientation)
+
 class TestRover:
 
     def setup(self):
         global r
-        r = rover.Rover(10, 21, 'N')
+        r = createRover(10, 21, 'N')
 
     def test_initial_x(self):
         assert_equal(10, r.x)
@@ -20,7 +23,7 @@ class TestMovesOrientationNorth:
 
     def setup(self):
         global r
-        r = rover.Rover(10, 21, 'N')
+        r = createRover(10, 21, 'N')
 
     def test_move_f(self):
         r.move(list("f"))
@@ -45,7 +48,7 @@ class TestMovesOrientationSouth:
     def setup(self):
         # tried using self.r, but it gets too wordy using self.r everywhere
         global r
-        r = rover.Rover(10, 21, 'S')
+        r = createRover(10, 21, 'S')
 
     def test_move_forward(self):
         r.move(list("f"))
@@ -70,7 +73,7 @@ class TestMovesOrientationEast:
 
     def setup(self):
         global r
-        r = rover.Rover(10, 21, 'E')
+        r = createRover(10, 21, 'E')
 
     def test_move_forward(self):
         r.move(list('f'))
@@ -94,7 +97,7 @@ class TestMovesOrientationWest:
 
     def setup(self):
         global r
-        r = rover.Rover(10, 21, 'W')
+        r = createRover(10, 21, 'W')
 
     def test_move_forward(self):
         r.move(list("f"))
@@ -118,7 +121,7 @@ class TestMovePath:
 
     def setup(self):
         global r
-        r = rover.Rover(10, 21, 'N')
+        r = createRover(10, 21, 'N')
 
     def test_simple_path(self):
         r.move(list("ffrff"))
