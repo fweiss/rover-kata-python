@@ -176,3 +176,27 @@ class TestWrapping:
         r = wp.createRover(0, 2, 'S')
         r.move(list('b'))
         assert_equal(0, r.y)
+
+class TestObstacle:
+
+    def setup(self):
+        global p
+        p = planet.Planet(20, 20)
+
+    def test_east_forward(self):
+        p.setObstacle(10, 12);
+        r = p.createRover(9, 12, 'E')
+        with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
+            r.move(list("f"))
+
+    def test_north_forward(self):
+        p.setObstacle(10, 12)
+        r = p.createRover(10, 11, 'N')
+        with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
+            r.move(list("f"))
+
+    def test_west_back(self):
+        p.setObstacle(10, 12);
+        r = p.createRover(9, 12, 'W')
+        with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
+            r.move(list("b"))
