@@ -182,21 +182,26 @@ class TestObstacle:
     def setup(self):
         global p
         p = planet.Planet(20, 20)
+        p.setObstacle(10, 12);
 
     def test_east_forward(self):
-        p.setObstacle(10, 12);
         r = p.createRover(9, 12, 'E')
         with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
             r.move(list("f"))
 
     def test_north_forward(self):
-        p.setObstacle(10, 12)
         r = p.createRover(10, 11, 'N')
         with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
             r.move(list("f"))
 
     def test_west_back(self):
-        p.setObstacle(10, 12);
         r = p.createRover(9, 12, 'W')
         with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
             r.move(list("b"))
+
+    def test_path_stops_before(self):
+        r = p.createRover(12, 11, 'W')
+        with assert_raises_regexp(ValueError, "Cannot move to 10,12: obstacle present"):
+            r.move(list("fflb"))
+        assert_equal(10, r.x)
+        assert_equal(11, r.y)
