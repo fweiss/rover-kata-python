@@ -29,8 +29,8 @@ class TestMovesOrientationNorth:
 
     def test_move_f(self):
         r.move(list("f"))
-        assert_equal(22, r.y)
         assert_equal(10, r.x)
+        assert_equal(22, r.y)
 
     def test_move_b(self):
         r.move(list("b"))

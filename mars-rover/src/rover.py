@@ -13,6 +13,12 @@ class Rover:
         for command in commands:
             self.moveBy(command)
 
+    def setPositionCheckObstacle(self, next_x, next_y):
+        if self.planet.checkObstacle(next_x, next_y):
+            raise ValueError("Cannot move to {:d},{:d}: obstacle present".format(next_x, next_y))
+        self.x = next_x
+        self.y = next_y
+
     # use command pattern and lookup to avoid switch statements :)
     def moveBy(self, commandKey):
         command = commands[commandKey]
@@ -22,18 +28,12 @@ class Rover:
     def move_forward(self, delta):
         next_x = self.planet.wrap_x(self.x + delta[0])
         next_y = self.planet.wrap_y(self.y + delta[1])
-        if self.planet.checkObstacle(next_x, next_y):
-            raise ValueError("Cannot move to {:d},{:d}: obstacle present".format(next_x, next_y))
-        self.x = next_x
-        self.y = next_y
+        self.setPositionCheckObstacle(next_x, next_y)
 
     def move_backward(self, delta):
         next_x = self.planet.wrap_x(self.x - delta[0])
         next_y = self.planet.wrap_y(self.y - delta[1])
-        if self.planet.checkObstacle(next_x, next_y):
-            raise ValueError("Cannot move to {:d},{:d}: obstacle present".format(next_x, next_y))
-        self.x = next_x
-        self.y = next_y
+        self.setPositionCheckObstacle(next_x, next_y)
 
     def move_right(self, delta):
         self.orientation = delta[3]
