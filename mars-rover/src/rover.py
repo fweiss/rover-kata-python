@@ -20,12 +20,12 @@ class Rover:
         command(self, delta)
 
     def move_forward(self, delta):
-        self.x += delta[0]
-        self.y += delta[1]
+        self.x = self.planet.wrap_x(self.x + delta[0])
+        self.y = self.planet.wrap_y(self.y + delta[1])
 
     def move_backward(self, delta):
-        self.x -= delta[0]
-        self.y -= delta[1]
+        self.x = self.planet.wrap_x(self.x - delta[0])
+        self.y = self.planet.wrap_y(self.y - delta[1])
 
     def move_right(self, delta):
         self.orientation = delta[3]

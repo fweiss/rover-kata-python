@@ -130,3 +130,49 @@ class TestMovePath:
         assert_equal('E', r.orientation)
         assert_equal(12, r.x)
         assert_equal(23, r.y)
+
+class TestWrapping:
+
+    def setup(self):
+        global wp
+        wp = planet.Planet(3, 3)
+
+    def test_wrap_east_forward(self):
+        r = wp.createRover(2, 0, 'E')
+        r.move(list("f"))
+        assert_equal(0, r.x)
+
+    def test_wrap_west_forward(self):
+        r = wp.createRover(0, 0, 'W')
+        r.move(list("f"))
+        assert_equal(2, r.x)
+
+    def test_wrap_north_forward(self):
+        r = wp.createRover(0, 2, 'N')
+        r.move(list("f"))
+        assert_equal(0, r.y)
+
+    def test_wrap_south_forward(self):
+        r = wp.createRover(0, 0, 'S')
+        r.move(list("f"))
+        assert_equal(2, r.y)
+
+    def test_wrap_east_backward(self):
+        r = wp.createRover(0, 0, 'E')
+        r.move(list('b'))
+        assert_equal(2, r.x)
+
+    def test_wrap_west_backward(self):
+        r = wp.createRover(2, 0, 'W')
+        r.move(list('b'))
+        assert_equal(0, r.x)
+
+    def test_wrap_north_backward(self):
+        r = wp.createRover(0, 0, 'N')
+        r.move(list('b'))
+        assert_equal(2, r.y)
+
+    def test_wrap_south_backward(self):
+        r = wp.createRover(0, 2, 'S')
+        r.move(list('b'))
+        assert_equal(0, r.y)
