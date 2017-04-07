@@ -1,10 +1,10 @@
-# tdd-Python
+# Mars Rover Kata with TDD
 
-Learning Python with a codign kata and TDD
+Learning Python with a coding kata and TDD
 
 ## Running the tests
 
-This uses the Python nose tools.
+This uses the Python nose testing framework.
 
 To run:
 
@@ -51,7 +51,7 @@ I did actually get used to the colon-indent structure.
 
 Support for the common data structures is built into the language.
 I was quite impressed that even the set data structure is present.
-This is like Ruby and Perl, but very much unlike Java and C++ where explicit libraries support data structures.
+This is like Ruby and Perl, but very much unlike Java and C++ where libraries need to be explicitly imported to support data structures.
 This is admittedly only a first impression, due to the limited language scope required for this kata.
 
 ### Python TDD support is good
@@ -59,18 +59,18 @@ This is admittedly only a first impression, due to the limited language scope re
 The unittest/nose framework even supports proper exception testing.
 
 What I do miss is rspec-like test method structure which I've gotten used to in JavaScript (Jasmine, Mocha).
-There was some project that tried to do it, but I didn't check it out.
+There was some project that tried to address this, but I didn't check it out.
 
 ### What is Python's 'with'?
 
 The 'with' keyword was used in the tests for exceptions. 
-I just followed the example code, without fully undrstanding it.
+I just followed the example code, without fully understanding it.
 
 I'm still noodling on the docs (TL;DR).
 
 ### Formatted strings
 
-I think Pythons approach to formatted strings - or templates - is unique.
+I think Python's approach to formatted strings - or templates - is unique.
 There are various ways to do it, but the one I chose is like this:
 
 ```"template with substitution commands".format(arg1, arg2, ...)```
