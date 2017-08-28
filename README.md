@@ -40,7 +40,7 @@ So although I expected to learn some more about TDD and doing katas, the focus w
 
 ### Python is easy
 
-Although I was orginally a bit shy about Python, the documentation is pretty solid and the syntax is straight-forward.
+Although I was originally a skeptical shy about Python, the documentation is pretty solid and the syntax is straightforward.
 It's not as fussy as Perl and Ruby. What I mean is, it avoids Perl's variable type sigils, '$', '%', etc.,
 and it also avoids Ruby's similar global/local variable scoping sigils.
 It's more like JavaScript in terms of being loosely typed.
