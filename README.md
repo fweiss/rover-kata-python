@@ -40,7 +40,7 @@ So although I expected to learn some more about TDD and doing katas, the focus w
 
 ### Python is easy
 
-Although I was originally a skeptical shy about Python, the documentation is pretty solid and the syntax is straightforward.
+Although I was originally a bit skeptical about Python, the documentation is pretty solid and the syntax is straightforward.
 It's not as fussy as Perl and Ruby. What I mean is, it avoids Perl's variable type sigils, '$', '%', etc.,
 and it also avoids Ruby's similar global/local variable scoping sigils.
 It's more like JavaScript in terms of being loosely typed.
@@ -94,6 +94,14 @@ The Python plugin seems to provide all the usual language support - although for
 
 Python has a 'yield' keyword. Sounds similar to Ruby's, but don't know since I haven't tried Python's.
 
+Python packaging and distribution, except for a little pip and easy_install.
+
+## Tech debt
+
+Here's the tech debt I deliberately took on:
+
+- Rover depends on Planet. Rover should depend on Position, which depends on Planet.
+
 ## Links and references
 
 https://www.youtube.com/watch?v=Qw2vczm4m2c&feature=youtu.be
@@ -116,6 +124,10 @@ The test runner is at /usr/local/bin/nosetests.
 
 http://nose.readthedocs.io/en/latest/testing.html
 
+### Konira
+
+Since one of my complaints was the desire for rspec-likee tests, check out Konira: https://github.com/alfredodeza/konira
+
 ## FAQ
 
 Here are some issues I encountered in getting this to work.
@@ -129,3 +141,12 @@ Executable should be in /usr/local/bin
 Actually the problem is SIP on OS X El Capitan
 
 http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-os-x-el-capitan-upgrade
+
+## IntelliJ
+
+The Python plugin includes PyCharm
+
+Preferences > Tools > Python Integrated Tools
+switch from unittests to nosetests
+
+
